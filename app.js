@@ -1,12 +1,19 @@
 var express = require("express"),
-    app = express();
+    app = express(),
+    request = require('request');
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res){
-    res.render("hangman");
+	request("https://listsdesign.herokuapp.com/lists/food-en.json", function (error, response, body) {
+		if(!error && response.statusCode == 200) {
+			var parsedData = JSON.parse(body);
+			res.render("hangman", {parsedData: parsedData});
+		}
+	})
 })
+
 
 
 app.listen(3000, function(){

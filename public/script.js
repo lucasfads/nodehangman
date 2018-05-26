@@ -1,7 +1,4 @@
 	var game = false;
-	var hint;
-	var wordOne;
-	var wordOneSplit;
 	var wrong = [];
 
 	function setLettersLoop(split, line) {
@@ -35,11 +32,11 @@
 	function newGame() {
 		resetGame();
 		hint  = prompt("What is the hint?", "HINT");
-	   	wordOne = prompt("First word to be guessed:", "WORD ONE");
+	   	wordOne = list[Math.floor(Math.random()*list.length)];
 		wordOneSplit = wordOne.toUpperCase().split('');
-		wordTwo = prompt("Second word to be guessed:", "WORD TWO");
+		wordTwo = list[Math.floor(Math.random()*list.length)];
 		wordTwoSplit = wordTwo.toUpperCase().split('');
-		wordThree = prompt("Third word to be guessed:", "WORD THREE");
+		wordThree = list[Math.floor(Math.random()*list.length)];
 		wordThreeSplit = wordThree.toUpperCase().split('');
 		document.getElementById("hint").innerHTML = hint;
 		document.getElementById("line1").innerHTML = "";
