@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="script.js"></script>
+</head>
+<body>
+
+<button onclick="newGame()">New Game</button>
+<button onclick="resetGame()">Reset Game</button>
+
+<p id="hint"></p>
+
+<div id="board">
+	<div class="line" id="line1">
+	</div>
+	<div class="line" id="line2">
+	</div>
+	<div class="line" id="line3">
+	</div>
+</div>
+
+<div id="enter">
+	<span>Letter:</span>
+	<input id="letter" type="text" maxlength="1" onkeyup="letterPress(this.value.toUpperCase())">
+</div>
+
+<div id="wrong-list">
+</div>
+
+</body>
+</html>
