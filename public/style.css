@@ -9,6 +9,8 @@ body * {
 	outline: none;
 }
 
+/** GAME **/
+
 button {
 	border:none;
 	background: #2e81b7;
@@ -77,4 +79,19 @@ button:hover {
 	margin-bottom: 30px;
 	font-size: 22px;
 	color: #e54d42;
+}
+
+/** FOOTER **/
+footer {
+	margin: 30px 0px;
+}
+
+footer * {
+	color: #ffffff;
+	text-align: center;
+	font-size: 13px;
+}
+
+footer p {
+	margin: 5px;
 }

@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-  	<meta charset="UTF-8">
-	<title>Hangman</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script type="text/javascript">
-		var list = [];
-	</script>
-	<% parsedData["Food"].forEach(function(item){ %>
-		<script type="text/javascript">list.push("<%= item['data'] %>")</script>
-	<% }) %>
-	<script type="text/javascript" src="script.js"></script>
-</head>
-<body>
+<% include ./partials/header %>
+
+<script type="text/javascript">
+	var list = [];
+</script>
+<%
+nameOfObject = Object.keys(parsedData)[0]
+parsedData[nameOfObject].forEach(function(item){ %>
+	<script type="text/javascript">list.push("<%= item['data'] %>")</script>
+<% }) %>
+<script type="text/javascript" src="/script.js"></script>
 
 <button onclick="newGame()">New Game</button>
 <button onclick="resetGame()">Reset Game</button>
@@ -36,5 +32,4 @@
 <div id="wrong-list">
 </div>
 
-</body>
-</html>
+<% include ./partials/footer %>
