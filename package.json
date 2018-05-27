@@ -1,0 +1,18 @@
+{
+  "name": "hangman",
+  "version": "1.4.0",
+  "description": "Simple hangman game developed on Node.js",
+  "main": "app.js",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "request": "^2.87.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "LucasFAdS",
+  "license": "ISC"
+}

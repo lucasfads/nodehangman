@@ -13,7 +13,7 @@ parsedData[nameOfObject].forEach(function(item){ %>
 <button onclick="newGame()">New Game</button>
 <button onclick="resetGame()">Reset Game</button>
 
-<p id="hint"></p>
+<p id="hint">Theme: <%= theme.toUpperCase() %></p>
 
 <div id="board">
 	<div class="line" id="line1">
@@ -26,7 +26,7 @@ parsedData[nameOfObject].forEach(function(item){ %>
 
 <div id="enter">
 	<span>Letter:</span>
-	<input id="letter" type="text" maxlength="1" onkeyup="letterPress(this.value.toUpperCase())">
+	<input id="letter" type="text" maxlength="1" onkeyup="letterPress(this.value.toUpperCase())" autofocus>
 </div>
 
 <div id="wrong-list">

@@ -31,14 +31,12 @@
 	
 	function newGame() {
 		resetGame();
-		hint  = prompt("What is the hint?", "HINT");
 	   	wordOne = list[Math.floor(Math.random()*list.length)];
 		wordOneSplit = wordOne.toUpperCase().split('');
 		wordTwo = list[Math.floor(Math.random()*list.length)];
 		wordTwoSplit = wordTwo.toUpperCase().split('');
 		wordThree = list[Math.floor(Math.random()*list.length)];
 		wordThreeSplit = wordThree.toUpperCase().split('');
-		document.getElementById("hint").innerHTML = hint;
 		document.getElementById("line1").innerHTML = "";
 		document.getElementById("line2").innerHTML = "";
 		document.getElementById("line3").innerHTML = "";
