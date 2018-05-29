@@ -69,3 +69,5 @@
 		document.getElementById("letter").value = "";
 		
 	}
+
+	window.onload = newGame;

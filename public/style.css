@@ -37,7 +37,7 @@ h2 {
 
 /** GAME **/
 
-button {
+button, #back {
 	border:none;
 	background: #2e81b7;
 	border-radius: 28px;
@@ -46,9 +46,10 @@ button {
 	padding: 10px 20px;
 	margin: 0px 15px;
 	text-decoration: none;
+	cursor: pointer;
 }
 
-button:hover {
+button:hover, #back:hover {
   	background: #3a99d9;
    	text-decoration: none;
 }

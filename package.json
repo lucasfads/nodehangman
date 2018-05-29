@@ -1,6 +1,6 @@
 {
   "name": "hangman",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Simple hangman game developed on Node.js",
   "main": "app.js",
   "dependencies": {
