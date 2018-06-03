@@ -10,27 +10,51 @@ parsedData[nameOfObject].forEach(function(item){ %>
 <% }) %>
 <script type="text/javascript" src="/script.js"></script>
 
-<a id="back" href="/">Theme selection</a>
-<button onclick="newGame()">New Game</button>
-<button onclick="resetGame()">Reset Game</button>
+<section>
+	<a id="back" href="/">Theme selection</a>
+	<button onclick="newGame()">New Game</button>
+	<button onclick="resetGame()">Reset Game</button>
 
-<p id="hint">Theme: <%= theme.toUpperCase() %></p>
+	<p id="hint">Theme: <%= theme.toUpperCase() %></p>
 
-<div id="board">
-	<div class="line" id="line1">
+	<div id="board-container">
+		
+		<div id="board">
+			<div class="line" id="line1">
+			</div>
+			<div class="line" id="line2">
+			</div>
+			<div class="line" id="line3">
+			</div>
+		</div>
+
+		<div id="board-bottom">
+			<div id="enter">
+				<span>Letter:</span>
+				<input id="letter" type="text" maxlength="1" onkeyup="letterPress(this.value.toUpperCase())" autofocus>
+			</div>
+
+			<div id="mistakes">
+				<div id="counter">
+					<span>6</span> mistakes left
+				</div>
+				<div id="wrong-list">
+				</div>
+			</div>
+		</div>
+		
 	</div>
-	<div class="line" id="line2">
-	</div>
-	<div class="line" id="line3">
-	</div>
-</div>
+	
+	
+</section>
 
-<div id="enter">
-	<span>Letter:</span>
-	<input id="letter" type="text" maxlength="1" onkeyup="letterPress(this.value.toUpperCase())" autofocus>
-</div>
-
-<div id="wrong-list">
+<div id="overlay" class="overlay-hide">
+	<div id="alert-box">
+		<div id="alert">You Win!</div>
+		<a id="back" href="/">Theme selection</a>
+		<button onclick="newGame()">New Game</button>
+		<button onclick="resetGame()">Reset Game</button>
+	</div>
 </div>
 
 <% include ./partials/footer %>

@@ -1,3 +1,4 @@
+	var counterLeft;
 	var wrong = [];
 	var win;
 
@@ -18,11 +19,15 @@
 	}
 
 	function resetGame() {
+		document.querySelector("#overlay").classList.remove("overlay-show");
+		document.querySelector("#overlay").classList.add("overlay-hide");
 		document.getElementById("letter").value = "";
 		document.getElementById("line1").innerHTML = "";
 		document.getElementById("line2").innerHTML = "";
 		document.getElementById("line3").innerHTML = "";
 		setLetters();
+		counterLeft = 6;
+		document.querySelector("#counter span").innerHTML = counterLeft;
 		wrong = [];
 		document.getElementById("wrong-list").innerHTML = "";
 		document.getElementById("letter").focus();
@@ -56,10 +61,31 @@
 	
 		if (any == false && wrong.indexOf(alpha) < 0) {
 			wrong.push(alpha);
+			counterLeft = 6 - wrong.length;
+			document.querySelector("#counter span").innerHTML = counterLeft;
 			document.getElementById("wrong-list").innerHTML += "<span>" + alpha + "</span>";
+			if (counterLeft == 0) {
+				youLose()
+			}
 		}
 	
 		document.getElementById("letter").value = "";
+
+		function alert() {
+			document.getElementById("letter").blur();
+			document.querySelector("#overlay").classList.remove("overlay-hide");
+			document.querySelector("#overlay").classList.add("overlay-show");
+		}
+
+		function youLose() {
+			document.querySelector("#alert").innerHTML = "You Lose!";
+			alert();
+		}
+
+		function youWin() {
+			document.querySelector("#alert").innerHTML = "You Win!";
+			alert();
+		}
 
 		function checkWin() {
 			win = true
@@ -70,11 +96,10 @@
 				}
 			}
 			if (win == true) {
-				window.alert("You win!!!")
+				youWin()
 			}
 		}
 		checkWin()
 	}
-
 
 	window.onload = newGame;
