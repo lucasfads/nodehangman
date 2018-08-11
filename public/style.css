@@ -76,23 +76,31 @@ button:hover, #back:hover {
 	min-height: 200px;
 	margin-bottom: 30px;
 	background-color: #3a99d9;
-	padding: 30px;
 	display: inline-block;
 	border-radius: 5px;
 }
 
 .line {
 	display: flex;
+	flex-wrap: wrap;
 	width: fit-content;
 	font-size: 42px;
+	margin: 30px;
 }
 
-.line span {
+.line .word {
+	display: inline-block;
+	margin: 0px 15px;
+}
+
+.line .letter {
+	display: inline-block;
 	width: 55px;
 	height: 84px;
 	line-height: 84px;
 	margin: 5px 2px;
 	border-radius: 3px;
+	vertical-align: text-bottom;
 }
 
 .letter {

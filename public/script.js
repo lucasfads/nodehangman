@@ -2,20 +2,20 @@
 	var wrong = [];
 	var win;
 
-	function setLettersLoop(split, line) {
-		for (var i = 0; i < split.length; i++) {
-			if (split[i] == " ") {
-				document.getElementById(line).innerHTML += "<span class='space'></span>";
-			} else {
-				document.getElementById(line).innerHTML += "<span class='letter'></span>";
+	function setLettersLoop(words, line) {
+		for (var h = 0; h < words.length; h++) {
+			document.getElementById(line).innerHTML += "<span class='word word-" + h + "'></span>";
+			letters = words[h].split('')
+			for (var i = 0; i < letters.length; i++) {
+				document.querySelector("#" + line + " .word-" + h).innerHTML += "<span class='letter'></span>";
 			}
 		}
 	}
 
 	function setLetters() {
-		setLettersLoop(wordOneSplit, "line1");
-		setLettersLoop(wordTwoSplit, "line2");
-		setLettersLoop(wordThreeSplit, "line3");
+		setLettersLoop(wordOneWords, "line1");
+		setLettersLoop(wordTwoWords, "line2");
+		setLettersLoop(wordThreeWords, "line3");
 	}
 
 	function resetGame() {
@@ -35,29 +35,32 @@
 	
 	function newGame() {
 	   	wordOne = list[Math.floor(Math.random()*list.length)];
-		wordOneSplit = wordOne.toUpperCase().split('');
+		wordOneWords = wordOne.toUpperCase().split(' ');
 		wordTwo = list[Math.floor(Math.random()*list.length)];
-		wordTwoSplit = wordTwo.toUpperCase().split('');
+		wordTwoWords = wordTwo.toUpperCase().split(' ');
 		wordThree = list[Math.floor(Math.random()*list.length)];
-		wordThreeSplit = wordThree.toUpperCase().split('');
+		wordThreeWords = wordThree.toUpperCase().split(' ');
 		resetGame();
 	}
 	
 	function letterPress(alpha) {
 		var any = false;
-		function checkLetterLoop(split, line) {
-			for (var i = 0; i < split.length; i++) {
-				if (alpha == split[i]) {
-					var j
-					j = i + 1;
-					document.querySelector("#" + line + " span:nth-child(" + j + ")").innerHTML = split[i];
-					any = true;
+		function checkLetterLoop(words, line) {
+			for (var h = 0; h < words.length; h++) {
+				letters = words[h].split('')
+				for (var i = 0; i < letters.length; i++) {
+					if (alpha == letters[i]) {
+						var j
+						j = i + 1;
+						document.querySelector("#" + line + " .word-" + h + " span:nth-child(" + j + ")").innerHTML = letters[i];
+						any = true;
+					}
 				}
 			}
 		}
-		checkLetterLoop(wordOneSplit, "line1");
-		checkLetterLoop(wordTwoSplit, "line2");
-		checkLetterLoop(wordThreeSplit, "line3");
+		checkLetterLoop(wordOneWords, "line1");
+		checkLetterLoop(wordTwoWords, "line2");
+		checkLetterLoop(wordThreeWords, "line3");
 	
 		if (any == false && wrong.indexOf(alpha) < 0) {
 			wrong.push(alpha);
