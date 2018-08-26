@@ -34,11 +34,11 @@
 	}
 	
 	function newGame() {
-	   	wordOne = list[Math.floor(Math.random()*list.length)];
+	   	wordOne = list[Math.floor(Math.random()*list.length)].data;
 		wordOneWords = wordOne.toUpperCase().split(' ');
-		wordTwo = list[Math.floor(Math.random()*list.length)];
+		wordTwo = list[Math.floor(Math.random()*list.length)].data;
 		wordTwoWords = wordTwo.toUpperCase().split(' ');
-		wordThree = list[Math.floor(Math.random()*list.length)];
+		wordThree = list[Math.floor(Math.random()*list.length)].data;
 		wordThreeWords = wordThree.toUpperCase().split(' ');
 		resetGame();
 	}
