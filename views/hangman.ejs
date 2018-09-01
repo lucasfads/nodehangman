@@ -32,7 +32,7 @@
 		<section>
 			<div id="game-header">
 				<a id="back" href="/"><i class="fas fa-caret-left"></i></a>
-				<h2 id="theme">Theme: <%= theme.toUpperCase() %></h2>
+				<h2 id="theme"><%= theme.toUpperCase() %></h2>
 				<button id="new-game" onclick="newGame()">New Game</button>
 			</div>
 
@@ -53,8 +53,7 @@
 	<div id="keyboard-container">
 		<div id="keyboard">
 			<div id="keyboard-selector">
-				<button id="qwerty">QWERTY</button>
-				<button id="abc">ABC</button>
+				<button id="qwerty" class="active">QWERTY</button>
 				<button id="numbers">?123</button>
 			</div>
 			<ul id="lifes">
@@ -66,34 +65,57 @@
 				<li><i class="fas fa-heart"></i></li>
 			</ul>
 			<div id="keys">
-				<button class="key" id="a">A</button>
-				<button class="key" id="b">B</button>
-				<button class="key" id="c">C</button>
-				<button class="key" id="d">D</button>
-				<button class="key" id="e">E</button>
-				<button class="key" id="f">F</button>
-				<button class="key" id="g">G</button>
-				<button class="key" id="h">H</button>
-				<button class="key" id="i">I</button>
-				<button class="key" id="j">J</button>
-				<span class="key-break"></span>
-				<button class="key" id="k">K</button>
-				<button class="key" id="l">L</button>
-				<button class="key" id="m">M</button>
-				<button class="key" id="n">N</button>
-				<button class="key" id="o">O</button>
-				<button class="key" id="p">P</button>
-				<button class="key" id="q">Q</button>
-				<button class="key" id="r">R</button>
-				<button class="key" id="s">S</button>
-				<span class="key-break"></span>
-				<button class="key" id="t">T</button>
-				<button class="key" id="u">U</button>
-				<button class="key" id="v">V</button>
-				<button class="key" id="w">W</button>
-				<button class="key" id="x">X</button>
-				<button class="key" id="y">Y</button>
-				<button class="key" id="z">Z</button>
+				<div id="keys-alpha" class="qwerty">
+					<button class="key" id="a">A</button>
+					<button class="key" id="b">B</button>
+					<button class="key" id="c">C</button>
+					<button class="key" id="d">D</button>
+					<button class="key" id="e">E</button>
+					<button class="key" id="f">F</button>
+					<button class="key" id="g">G</button>
+					<button class="key" id="h">H</button>
+					<button class="key" id="i">I</button>
+					<button class="key" id="j">J</button>
+					<span class="key-break"></span>
+					<button class="key" id="k">K</button>
+					<button class="key" id="l">L</button>
+					<button class="key" id="m">M</button>
+					<button class="key" id="n">N</button>
+					<button class="key" id="o">O</button>
+					<button class="key" id="p">P</button>
+					<button class="key" id="q">Q</button>
+					<button class="key" id="r">R</button>
+					<button class="key" id="s">S</button>
+					<span class="key-break"></span>
+					<button class="key" id="t">T</button>
+					<button class="key" id="u">U</button>
+					<button class="key" id="v">V</button>
+					<button class="key" id="w">W</button>
+					<button class="key" id="x">X</button>
+					<button class="key" id="y">Y</button>
+					<button class="key" id="z">Z</button>
+				</div>
+				<div id="keys-nums" class="hidden-keyboard">
+					<button class="key" id="1">1</button>
+					<button class="key" id="2">2</button>
+					<button class="key" id="3">3</button>
+					<button class="key" id="4">4</button>
+					<button class="key" id="5">5</button>
+					<button class="key" id="6">6</button>
+					<button class="key" id="7">7</button>
+					<button class="key" id="8">8</button>
+					<button class="key" id="9">9</button>
+					<button class="key" id="0">0</button>
+					<span class="key-break"></span>
+					<button class="key" id="_">'</button>
+					<button class="key" id="_">:</button>
+					<button class="key" id="_">!</button>
+					<button class="key" id="_">?</button>
+					<span class="key-break"></span>
+					<button class="key" id="_">&</button>
+					<button class="key" id="_">.</button>
+					<button class="key" id="_">,</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -104,8 +126,7 @@
 	<div id="alert-box">
 		<div id="alert">You Win!</div>
 		<a id="back" href="/">Theme selection</a>
-		<button onclick="newGame()">New Game</button>
-		<button onclick="resetGame()">Reset Game</button>
+		<button id="new-game" onclick="newGame()">New Game</button>
 	</div>
 </div>
 
