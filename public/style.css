@@ -1,23 +1,30 @@
+html {
+	height: 100%;
+}
+
 body {
+	height: 100%;
 	background-color: #2c3e4f;
 	text-align: center;
-	padding: 10px;
+/*	padding: 10px;*/
+	margin: 0px;
 }
 
 body * {
-	font-family: sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	outline: none;
 }
 
 section {
 	max-width: 1200px;
 	margin: 0px auto;
+	padding: 15px;
 }
 
 @media (min-width: 768px) {
-	body {
+	/*body {
 		padding: 30px;
-	}
+	}*/
 }
 
 /** THEMES **/
@@ -32,20 +39,28 @@ h2 {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	align-items: stretch;
 }
 
 #themes li {
 	margin: 10px;
+	flex: 1 1 0;
 }
 
 #themes a {
 	display: inline-block;
-	padding: 15px;
+	padding: 15px 30px;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
 	background-color: #ffffff;
 	border-radius: 5px;
 	text-decoration: none;
 	font-size: 21px;
 	color: #000000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 @media (min-width: 768px) {
@@ -63,26 +78,50 @@ h2 {
 }
 
 /** GAME **/
+#viewport {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
 
-button, #back {
+#game-container {
+	flex: 1 10 0;
+	overflow-y: auto;
+}
+
+#game-header {
+	display: flex;
+	align-items: center;
+	margin: 0px 0px 30px;
+	justify-content: space-between;
+}
+
+#theme {
+ 	margin: 0px 15px;
+ 	font-weight: normal;
+ 	font-size: 21px;
+}
+
+#back, #new-game {
 	display: inline-block;
 	border:none;
 	background: #2e81b7;
-	border-radius: 28px;
+	border-radius: 3px;
 	color: #ffffff;
-	font-size: 21px;
+	font-size: 13px;
 	padding: 10px 20px;
-	margin: 5px 15px;
 	text-decoration: none;
 	cursor: pointer;
 }
 
-button:hover, #back:hover {
+#back:hover, #new-game:hover {
   	background: #3a99d9;
    	text-decoration: none;
 }
 
-#hint, #enter {
+#enter {
 	color: #ffffff;
 	font-size: 21px;
 }
@@ -94,9 +133,9 @@ button:hover, #back:hover {
 
 #board {
 	margin-bottom: 30px;
-	background-color: #3a99d9;
+/*	background-color: #3a99d9;*/
 	display: inline-block;
-	border-radius: 5px;
+/*	border-radius: 5px;*/
 }
 
 .line {
@@ -133,40 +172,200 @@ button:hover, #back:hover {
 	align-items: center;
 }
 
-#enter {
-	margin-bottom: 30px;
+/** KEYBOARD **/
+#keyboard-container {
+	flex: 0 1 0;
+	box-sizing: border-box;
+    width: 100%;
+    background: #E5E9EA;
+    padding: 15px 5px;
 }
 
-#enter input {
+#keyboard {
+	max-width: 600px;
+	margin: 0px auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#keyboard-selector {
+	padding: 10px;
+}
+
+#keyboard-selector button {
+	background: transparent;
 	border: none;
-	border-radius: 28px;
-	font-size: 34px;
-	text-align: center;
-	width: 55px;
-	height: 55px
-}
-
-#mistakes {
-	text-align: right;
-}
-
-#counter {
-	color: #ffffff;
-	size: 13px;
-}
-
-#counter span {
+	cursor: pointer;
+	font-size: 13px;
 	font-weight: bold;
+	color: #717171;
+	padding: 0px 5px;
 }
 
-#wrong-list {
-	margin-bottom: 30px;
-	font-size: 21px;
-	color: #e54d42;
+#keyboard-selector button.active {
+	color: #4787F3;
 }
 
-#wrong-list span {
-	padding: 5px;
+#lifes {
+	list-style: none;
+	margin: 0px;
+	padding: 10px;
+}
+
+#lifes li {
+	display: inline-block;
+}
+
+#lifes i {
+	color: #F18181;
+}
+
+#lifes li.mistake i {
+	color: #333333;
+}
+
+#keys {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: 5px 0px 0px;
+}
+
+.key {
+	background: #F9F9FB;
+	border: none;
+	border-radius: 3px;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+	min-width: 30px;
+	text-align: center;
+	padding: 10px 5px;
+	margin: 2px;
+	cursor: pointer;
+}
+
+.fade {
+	opacity: 0.20;
+}
+
+.key-break {
+	width: 100%;
+}
+
+#qwerty {
+
+}
+
+.qwerty #q {
+	order: 1;
+}
+
+.qwerty #w {
+	order: 2;
+}
+
+.qwerty #e {
+	order: 3;
+}
+
+.qwerty #r {
+	order: 4;
+}
+
+.qwerty #t {
+	order: 5;
+}
+
+.qwerty #y {
+	order: 6;
+}
+
+.qwerty #u {
+	order: 7;
+}
+
+.qwerty #i {
+	order: 8;
+}
+
+.qwerty #o {
+	order: 9;
+}
+
+.qwerty #p {
+	order: 10;
+}
+
+.qwerty span:nth-child(11) {
+	order: 11;
+}
+
+.qwerty #a {
+	order: 12;
+}
+
+.qwerty #s {
+	order: 13;
+}
+
+.qwerty #d {
+	order: 14;
+}
+
+.qwerty #f {
+	order: 15;
+}
+
+.qwerty #g {
+	order: 16;
+}
+
+.qwerty #h {
+	order: 17;
+}
+
+.qwerty #j {
+	order: 18;
+}
+
+.qwerty #k {
+	order: 19;
+}
+
+.qwerty #l {
+	order: 20;
+}
+
+.qwerty span:nth-child(21) {
+	order: 21;
+}
+
+.qwerty #z {
+	order: 22;
+}
+
+.qwerty #x {
+	order: 23;
+}
+
+.qwerty #c {
+	order: 24;
+}
+
+.qwerty #v {
+	order: 25;
+}
+
+.qwerty #b {
+	order: 26;
+}
+.qwerty #n {
+	order: 27;
+}
+.qwerty #m {
+	order: 28;
 }
 
 @media (min-width: 768px) {

@@ -1,5 +1,6 @@
 	var counterLeft;
 	var wrong = [];
+	var mistakes = 0;
 	var win;
 
 	function setLettersLoop(words, line) {
@@ -21,16 +22,17 @@
 	function resetGame() {
 		document.querySelector("#overlay").classList.remove("overlay-show");
 		document.querySelector("#overlay").classList.add("overlay-hide");
-		document.getElementById("letter").value = "";
 		document.getElementById("line1").innerHTML = "";
 		document.getElementById("line2").innerHTML = "";
 		document.getElementById("line3").innerHTML = "";
 		setLetters();
 		counterLeft = 6;
-		document.querySelector("#counter span").innerHTML = counterLeft;
 		wrong = [];
-		document.getElementById("wrong-list").innerHTML = "";
-		document.getElementById("letter").focus();
+		mistakes = 0;
+		var faded = document.querySelectorAll(".fade");
+		for (var i = 0; i < faded.length; i++) {
+			faded[i].classList.remove("fade");
+		}
 	}
 	
 	function newGame() {
@@ -42,7 +44,7 @@
 		wordThreeWords = wordThree.toUpperCase().split(' ');
 		resetGame();
 	}
-	
+
 	function letterPress(alpha) {
 		var any = false;
 		function checkLetterLoop(words, line) {
@@ -61,21 +63,21 @@
 		checkLetterLoop(wordOneWords, "line1");
 		checkLetterLoop(wordTwoWords, "line2");
 		checkLetterLoop(wordThreeWords, "line3");
+		
+		var alphaId = alpha.toLowerCase();
+		document.getElementById(alphaId).classList.add("fade");
 	
 		if (any == false && wrong.indexOf(alpha) < 0) {
 			wrong.push(alpha);
 			counterLeft = 6 - wrong.length;
-			document.querySelector("#counter span").innerHTML = counterLeft;
-			document.getElementById("wrong-list").innerHTML += "<span>" + alpha + "</span>";
+			mistakes += 1;
+			document.querySelector("#lifes li:nth-child(" + mistakes + ")").classList.add("fade");
 			if (counterLeft == 0) {
 				youLose()
 			}
 		}
-	
-		document.getElementById("letter").value = "";
 
 		function alert() {
-			document.getElementById("letter").blur();
 			document.querySelector("#overlay").classList.remove("overlay-hide");
 			document.querySelector("#overlay").classList.add("overlay-show");
 		}
@@ -105,4 +107,27 @@
 		checkWin()
 	}
 
+	document.addEventListener('keydown', (event) => {
+	  const keyName = event.key;
+	  letterPress(keyName.toUpperCase());
+	});
+
+	var virtualKeys = document.querySelectorAll(".key");
+
+	for (var i = 0; i < virtualKeys.length; i++) {
+		virtualKeys[i].addEventListener('click', function() {
+		  	letterPress(this.id.toUpperCase());
+		})
+	}
+
+
 	window.onload = newGame;
+
+
+	var keyboard = document.querySelector('#keys')
+	var qwertyButton = document.querySelector('#qwerty');
+
+	qwertyButton.onclick = function() {
+	  keyboard.classList.toggle('qwerty');
+	  qwertyButton.classList.toggle('active');
+	}
