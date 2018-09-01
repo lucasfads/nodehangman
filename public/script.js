@@ -116,7 +116,7 @@
 
 	for (var i = 0; i < virtualKeys.length; i++) {
 		virtualKeys[i].addEventListener('click', function() {
-		  	letterPress(this.id.toUpperCase());
+		  	letterPress(this.innerHTML.toUpperCase());
 		})
 	}
 
@@ -124,10 +124,21 @@
 	window.onload = newGame;
 
 
-	var keyboard = document.querySelector('#keys')
 	var qwertyButton = document.querySelector('#qwerty');
+	var numsButton = document.querySelector('#numbers');
+	var qwertyKeyboard = document.querySelector('#keys-alpha')
+	var numsKeyboard = document.querySelector('#keys-nums')
 
 	qwertyButton.onclick = function() {
-	  keyboard.classList.toggle('qwerty');
-	  qwertyButton.classList.toggle('active');
+		qwertyButton.classList.toggle('active');
+		numsButton.classList.toggle('active');
+	  	qwertyKeyboard.classList.toggle('hidden-keyboard');
+	  	numsKeyboard.classList.toggle('hidden-keyboard'); 
+	}
+
+	numsButton.onclick = function() {
+		qwertyButton.classList.toggle('active');
+		numsButton.classList.toggle('active');
+	  	qwertyKeyboard.classList.toggle('hidden-keyboard');
+	  	numsKeyboard.classList.toggle('hidden-keyboard'); 
 	}

@@ -112,6 +112,7 @@ h2 {
 	color: #ffffff;
 	font-size: 13px;
 	padding: 10px 20px;
+	margin: 10px 0px;
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -172,13 +173,29 @@ h2 {
 	align-items: center;
 }
 
+@media (min-width: 768px) {
+	.line {
+		font-size: 42px;
+	}
+
+	.line .word {
+		margin: 5px 10px;
+	}
+
+	.line .letter {
+		width: 55px;
+		height: 84px;
+		line-height: 84px;
+	}
+}
+
 /** KEYBOARD **/
 #keyboard-container {
 	flex: 0 1 0;
 	box-sizing: border-box;
     width: 100%;
     background: #E5E9EA;
-    padding: 15px 5px;
+    padding: 0px 5px;
 }
 
 #keyboard {
@@ -191,7 +208,7 @@ h2 {
 }
 
 #keyboard-selector {
-	padding: 10px;
+	padding: 10px 5px 5px;
 }
 
 #keyboard-selector button {
@@ -211,7 +228,7 @@ h2 {
 #lifes {
 	list-style: none;
 	margin: 0px;
-	padding: 10px;
+	padding: 10px 5px 5px;
 }
 
 #lifes li {
@@ -228,13 +245,17 @@ h2 {
 
 #keys {
 	width: 100%;
+	margin: 5px 0px;
+}
+
+#keys > div {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	margin: 5px 0px 0px;
 }
 
 .key {
+	font-size: 13px;
 	background: #F9F9FB;
 	border: none;
 	border-radius: 3px;
@@ -254,8 +275,8 @@ h2 {
 	width: 100%;
 }
 
-#qwerty {
-
+.hidden-keyboard {
+	display: none !important;
 }
 
 .qwerty #q {
@@ -369,18 +390,11 @@ h2 {
 }
 
 @media (min-width: 768px) {
-	.line {
-		font-size: 42px;
-	}
-
-	.line .word {
-		margin: 5px 10px;
-	}
-
-	.line .letter {
-		width: 55px;
-		height: 84px;
-		line-height: 84px;
+	.key {
+		font-size: 21px;
+		min-width: 40px;
+		padding: 10px 10px;
+		margin: 5px;
 	}
 }
 
